@@ -2,6 +2,7 @@ package com.example.android.musicplayerapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 
 import java.util.ArrayList;
@@ -13,9 +14,13 @@ public class libraryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_library);
 
-        ArrayList<String> songs = new ArrayList<>();
+        int SongImageId = R.drawable.skyline_converted;
 
-        songs.add()
+        ArrayList<Song> songs = new ArrayList<>();
+
+        songs.add(new Song("Set this world free", "Death to the Spartans", SongImageId, false));
+        songs.add(new Song("I'm the master of man", "Death to the Spartans", SongImageId, false));
+        songs.add(new Song("Lollipops", "Death to the Martians", SongImageId, false));
 
     }
 }
