@@ -3,17 +3,11 @@ package com.example.android.musicplayerapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent libraryIntent =
-                        new Intent(MainActivity.this, libraryActivity.class);
+                        new Intent(MainActivity.this, LibraryActivity.class);
                 startActivity(libraryIntent);
             }
         });

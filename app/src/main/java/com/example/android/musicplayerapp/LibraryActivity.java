@@ -3,7 +3,6 @@ package com.example.android.musicplayerapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -11,7 +10,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class libraryActivity extends AppCompatActivity {
+public class LibraryActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,9 +19,9 @@ public class libraryActivity extends AppCompatActivity {
 
         final ArrayList<Song> SONGS = new ArrayList<>();
 
-        SONGS.add(new Song("Set this world free", "Death to the Spartans", R.drawable.boats_pic, false));
-        SONGS.add(new Song("I'm the master of man", "Death to the Spartans",  R.drawable.skyline_pic, false));
-        SONGS.add(new Song("Lollipops", "Death to the Martians",  R.drawable.skyline_pic, false));
+        SONGS.add(new Song("Set this world free", "Death to the Spartans", R.drawable.boats_pic, "Rock"));
+        SONGS.add(new Song("I'm the master of man", "Death to the Spartans",  R.drawable.skyline_pic, "Metal"));
+        SONGS.add(new Song("Lollipops", "Death to the Martians",  R.drawable.skyline_pic, "Pop"));
 
         SongAdapter adapter = new SongAdapter(this, SONGS);
 
@@ -35,7 +34,7 @@ public class libraryActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Song clickedSong = SONGS.get(i);
-                Intent playIntent = new Intent(libraryActivity.this, MainActivity.class);
+                Intent playIntent = new Intent(LibraryActivity.this, MainActivity.class);
                 playIntent.putExtra("clickedSong", clickedSong);
                 startActivity(playIntent);
             }

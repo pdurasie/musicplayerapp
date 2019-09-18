@@ -7,13 +7,13 @@ public class Song implements Serializable {
     private String mSongName;
     private String mArtistName;
     private int mImageResourceId;
-    private boolean mIsHearted;
+    private String mGenre;
 
-    public Song(String songName, String artistName, int imageResourceId, boolean isHearted) {
+    public Song(String songName, String artistName, int imageResourceId, String genre) {
         mSongName = songName;
         mArtistName = artistName;
         mImageResourceId = imageResourceId;
-        mIsHearted = isHearted;
+        mGenre = genre;
     }
 
     public String getSongName() {
@@ -28,8 +28,8 @@ public class Song implements Serializable {
         return mImageResourceId;
     }
 
-    public boolean getIsHearted() {
-        return mIsHearted;
+    public String getGenre() {
+        return mGenre;
     }
 
 

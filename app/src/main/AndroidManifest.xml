@@ -12,7 +12,7 @@
         <activity android:name=".HeartedActivity"
             android:label="@string/hearted_name">
         </activity>
-        <activity android:name=".libraryActivity"
+        <activity android:name=".LibraryActivity"
             android:label="@string/library_name"/>
         <activity android:name=".MainActivity"
             android:label="@string/main_name">
