@@ -1,5 +1,7 @@
 package com.example.android.musicplayerapp;
 
+import android.widget.Filter;
+
 import java.io.Serializable;
 
 public class Song implements Serializable {
@@ -31,7 +33,5 @@ public class Song implements Serializable {
     public String getGenre() {
         return mGenre;
     }
-
-
 
 }

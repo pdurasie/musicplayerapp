@@ -5,7 +5,12 @@
     <string name="hearted_name">Songs you like</string>
     <string name="library_btn">Library</string>
     <string name="now_playing_btn">Now playing</string>
-    <string name="stars_btn">You like</string>
+    <!--For menu -->
+    <string name="all_item">All</string>
+    <string name="alternative_item">Alternative</string>
+    <string name="metal_item">Metal</string>
+    <string name="pop_item">Pop</string>
+    <string name="rock_item">Rock</string>
 
     <string name="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
         sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
