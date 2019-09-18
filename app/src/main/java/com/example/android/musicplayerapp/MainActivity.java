@@ -53,8 +53,8 @@ public class MainActivity extends AppCompatActivity {
         currentArtistName.setText(clickedSong.getArtistName());
 
         int ImageId = clickedSong.getImageResourceId();
-        ImageView currentSongImg = findViewById(R.id.current_song_img);
-        currentSongImg.setImageResource(ImageId);
+        RelativeLayout currentSongLayout = findViewById(R.id.current_song_layout);
+        currentSongLayout.setBackgroundResource(ImageId);
     }
 
 
