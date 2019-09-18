@@ -1,62 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/current_song_layout"
+                android:layout_width="match_parent"
+                android:layout_height="400dp">
+
+                <ImageView
+                    android:id="@+id/current_song_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/skyline_pic"
+                    android:tint="#6F000000" />
+
+                <TextView
+                    android:id="@+id/current_song_title"
+                    style="@style/song_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    tools:text="Song title" />
+
+                <TextView
+                    android:id="@+id/current_artist_name"
+                    style="@style/artist_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/current_song_title"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    tools:text="Artist name" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="@string/lorem"
+                tools:text="Lyrics here" />
+
+        </LinearLayout>
+    </ScrollView>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:gravity="center">
 
-    <RelativeLayout
-        android:id="@+id/current_song_layout"
-        android:layout_width="match_parent"
-        android:layout_height="400dp">
-
-        <ImageView
-            android:id="@+id/current_song_img"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:tint="#6F000000"
-            android:src="@drawable/skyline_pic" />
-
-        <TextView
-            android:id="@+id/current_song_title"
+        <Button
+            android:id="@+id/library_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            style="@style/song_name"
-            tools:text="Song title" />
+            android:layout_marginRight="16dp"
+            android:text="@string/library_btn" />
 
-        <TextView
-            android:id="@+id/current_artist_name"
+        <Button
+            android:id="@+id/stars_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:layout_below="@+id/current_song_title"
-            style="@style/artist_name"
-            tools:text="Artist name" />
-
-    </RelativeLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:text="@string/lorem"
-        tools:text="Lyrics here"/>
-
-    <Button
-        android:id="@+id/library_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/library_btn"
-        />
+            android:text="@string/stars_btn" />
 
     </LinearLayout>
-</ScrollView>
+
+
+</RelativeLayout>
