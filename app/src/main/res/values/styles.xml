@@ -8,4 +8,16 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="song_name">
+        <item name="android:textColor">#FFF</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textSize">28sp</item>
+    </style>
+
+    <style name="artist_name">
+        <item name="android:textColor">#E4E3E3</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
 </resources>

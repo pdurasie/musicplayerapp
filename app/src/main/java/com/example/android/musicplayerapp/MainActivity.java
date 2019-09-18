@@ -40,7 +40,9 @@ public class MainActivity extends AppCompatActivity {
  */
         Intent intent = getIntent();
         Song clickedSong = (Song) intent.getSerializableExtra("clickedSong");
-        setCurrentSong(clickedSong);
+        if (clickedSong != null) {
+            setCurrentSong(clickedSong);
+        }
     }
 
     public void setCurrentSong(Song clickedSong){
