@@ -2,4 +2,6 @@
     <string name="app_name">Music Player App</string>
     <string name="library_name">Your library</string>
     <string name="hearted_name">Songs you like</string>
+    <string name="library_btn">Library</string>
+    <string name="now_playing_btn">Now playing</string>
 </resources>

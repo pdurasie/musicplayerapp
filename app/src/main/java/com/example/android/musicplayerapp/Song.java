@@ -1,6 +1,8 @@
 package com.example.android.musicplayerapp;
 
-public class Song {
+import java.io.Serializable;
+
+public class Song implements Serializable {
 
     private String mSongName;
     private String mArtistName;
@@ -29,5 +31,7 @@ public class Song {
     public boolean getIsHearted() {
         return mIsHearted;
     }
+
+
 
 }
