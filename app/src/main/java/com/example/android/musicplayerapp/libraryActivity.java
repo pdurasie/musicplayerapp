@@ -15,7 +15,7 @@ public class libraryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_library);
 
-        int SongImageId = R.drawable.skyline_converted;
+        int SongImageId = R.drawable.skyline_pic;
 
         ArrayList<Song> songs = new ArrayList<>();
 
