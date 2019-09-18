@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -29,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
         });*/
 
         int SongImageId = R.drawable.skyline_pic;
-
-        ArrayList<Song> songs = new ArrayList<>();
+//I needed to set this to final due to the onitemclicklistener - why?
+        final ArrayList<Song> songs = new ArrayList<>();
 
         songs.add(new Song("Set this world free", "Death to the Spartans", R.drawable.boats_pic, false));
         songs.add(new Song("I'm the master of man", "Death to the Spartans", SongImageId, false));
@@ -41,9 +42,24 @@ public class MainActivity extends AppCompatActivity {
         ListView listView = findViewById(R.id.main_list);
 
         listView.setAdapter(adapter);
+// Setting the current song
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Song clickedSong = songs.get(i);
+                setCurrentSong(clickedSong);
+            }
+        });
 
     }
 
+    public void setCurrentSong(Song clickedSong){
+        TextView currentSongTitle = findViewById(R.id.current_song_title);
+        currentSongTitle.setText(clickedSong.getSongName());
+
+        TextView currentArtistName = findViewById(R.id.current_artist_name);
+        currentArtistName.setText(clickedSong.getArtistName());
+    }
 
 }
 
