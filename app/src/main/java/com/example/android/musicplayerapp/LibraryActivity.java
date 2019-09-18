@@ -20,7 +20,7 @@ public class LibraryActivity extends AppCompatActivity {
         final ArrayList<Song> SONGS = new ArrayList<>();
 
         SONGS.add(new Song("Set this world free", "Death to the Spartans", R.drawable.boats_pic, "Rock"));
-        SONGS.add(new Song("I'm the master of man", "Death to the Spartans",  R.drawable.skyline_pic, "Metal"));
+        SONGS.add(new Song("I'm the master of man", "Death to the Spartans",  R.drawable.boats_pic, "Metal"));
         SONGS.add(new Song("Lollipops", "Death to the Martians",  R.drawable.skyline_pic, "Pop"));
 
         SongAdapter adapter = new SongAdapter(this, SONGS);

@@ -18,7 +18,7 @@ public class SongAdapter extends ArrayAdapter<Song> implements Filterable {
 
     private List<Song> originalSongList;
 
-    public SongAdapter(Activity context, ArrayList<Song> songs){
+   public SongAdapter(Activity context, ArrayList<Song> songs){
         super(context, 0, songs);
         originalSongList = songs;
     }
@@ -45,7 +45,7 @@ public class SongAdapter extends ArrayAdapter<Song> implements Filterable {
         return listItemView;
     }
 
-    // This filtering section is adapted by a stack overflow question:
+ /*   // This filtering section is adapted by a stack overflow question:
     // "Custom getFilter in custom ArrayAdapter in android"
     @Override
     public Filter getFilter() {
@@ -83,5 +83,5 @@ public class SongAdapter extends ArrayAdapter<Song> implements Filterable {
                }
             }
         };
-    }
+    }*/
 }

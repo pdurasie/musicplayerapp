@@ -22,7 +22,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:gravity="center"
-                android:background="@drawable/skyline_pic"
+                android:background="@drawable/boats_pic"
                 android:backgroundTint="#6F0A0A0A"
                 android:backgroundTintMode="src_over">
 
