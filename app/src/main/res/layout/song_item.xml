@@ -9,6 +9,7 @@
         android:id="@+id/song_item_icon"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:cropToPadding="true"
         />
 
     <LinearLayout

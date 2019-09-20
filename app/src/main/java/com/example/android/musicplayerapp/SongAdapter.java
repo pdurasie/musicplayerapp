@@ -34,7 +34,7 @@ public class SongAdapter extends ArrayAdapter<Song> implements Filterable {
         Song currentSong = getItem(position);
 
         ImageView songIcon = listItemView.findViewById(R.id.song_item_icon);
-        songIcon.setImageResource(currentSong.getImageResourceId());
+        songIcon.setImageResource(currentSong.getThumbnailResourceId());
 
         TextView songName = listItemView.findViewById(R.id.song_name_text_view);
         songName.setText(currentSong.getSongName());
@@ -42,8 +42,11 @@ public class SongAdapter extends ArrayAdapter<Song> implements Filterable {
         TextView artistName = listItemView.findViewById(R.id.artist_name_text_view);
         artistName.setText(currentSong.getArtistName());
 
+
+
         return listItemView;
     }
+
 
  /*   // This filtering section is adapted by a stack overflow question:
     // "Custom getFilter in custom ArrayAdapter in android"

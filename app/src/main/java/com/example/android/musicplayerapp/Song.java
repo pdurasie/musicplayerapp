@@ -9,12 +9,14 @@ public class Song implements Serializable {
     private String mSongName;
     private String mArtistName;
     private int mImageResourceId;
+    private int mThumbnailResourceId;
     private String mGenre;
 
-    public Song(String songName, String artistName, int imageResourceId, String genre) {
+    public Song(String songName, String artistName, int imageResourceId, int thumbnailResourceId, String genre) {
         mSongName = songName;
         mArtistName = artistName;
         mImageResourceId = imageResourceId;
+        mThumbnailResourceId = thumbnailResourceId;
         mGenre = genre;
     }
 
@@ -29,6 +31,8 @@ public class Song implements Serializable {
     public int getImageResourceId() {
         return mImageResourceId;
     }
+
+    public int getThumbnailResourceId() { return mThumbnailResourceId; }
 
     public String getGenre() {
         return mGenre;
