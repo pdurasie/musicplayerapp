@@ -7,10 +7,11 @@
     android:orientation="vertical"
     tools:context=".LibraryActivity">
 
-    <Button
+    <Spinner
+        android:id="@+id/genre_spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@android:drawable/ic_menu_edit"/>
+        android:layout_margin="16dp"/>
 
     <ListView
         android:id="@+id/library_list"

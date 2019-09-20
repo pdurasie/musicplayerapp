@@ -48,7 +48,7 @@ public class SongAdapter extends ArrayAdapter<Song> implements Filterable {
     }
 
 
- /*   // This filtering section is adapted by a stack overflow question:
+    // This filtering section is adapted by a stack overflow question:
     // "Custom getFilter in custom ArrayAdapter in android"
     @Override
     public Filter getFilter() {
@@ -86,5 +86,5 @@ public class SongAdapter extends ArrayAdapter<Song> implements Filterable {
                }
             }
         };
-    }*/
+    }
 }

@@ -53,7 +53,3 @@ public class MainActivity extends AppCompatActivity {
 
 
 }
-
-// Activities: 1. Main (Player + Lyrics)
-// 2. Library (total list of songs)
-// 3. Hearted songs -> You may also like (Genres)

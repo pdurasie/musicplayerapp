@@ -4,26 +4,38 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.PopupMenu;
+import android.widget.Spinner;
 
 import java.util.ArrayList;
 
-public class LibraryActivity extends AppCompatActivity {
+public class LibraryActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_library);
 
+        Spinner spinner = findViewById(R.id.genre_spinner);
+        ArrayAdapter<CharSequence> genreAdapter = ArrayAdapter.createFromResource(this,
+                R.array.genres_array,
+                android.R.layout.simple_spinner_item);
+        genreAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(genreAdapter);
+
         final ArrayList<Song> SONGS = new ArrayList<>();
 
+        SONGS.add(new Song("Flames", "Imagine Letters", R.drawable.concert_pic,  R.drawable.concert_pic_tn, "Rock"));
         SONGS.add(new Song("Set this world free", "Death to the Spartans", R.drawable.stairs_pic, R.drawable.stairs_pic_tn, "Metal"));
         SONGS.add(new Song("Sunset Rider", "Four Guys",  R.drawable.boats_pic, R.drawable.boats_pic_tn, "Rock"));
         SONGS.add(new Song("Lollipops", "Death to the Martians",  R.drawable.head_pic, R.drawable.head_pic_tn, "Pop"));
         SONGS.add(new Song("Nature fixes you", "The Hipsters", R.drawable.creek_pic, R.drawable.creek_pic_tn, "Alternative"));
-        SONGS.add(new Song("Flames", "Imagine Letters", R.drawable.concert_pic,  R.drawable.concert_pic_tn, "Rock"));
 
         SongAdapter adapter = new SongAdapter(this, SONGS);
 

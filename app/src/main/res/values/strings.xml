@@ -5,12 +5,15 @@
     <string name="hearted_name">Songs you like</string>
     <string name="library_btn">Library</string>
     <string name="now_playing_btn">Now playing</string>
+
     <!--For menu -->
-    <string name="all_item">All</string>
-    <string name="alternative_item">Alternative</string>
-    <string name="metal_item">Metal</string>
-    <string name="pop_item">Pop</string>
-    <string name="rock_item">Rock</string>
+    <string-array name="genres_array">
+        <item>All</item>
+        <item>Alternative</item>
+        <item>Metal</item>
+        <item>Pop</item>
+        <item>Rock</item>
+    </string-array>
 
     <string name="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
         sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
