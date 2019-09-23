@@ -12,8 +12,6 @@ import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import static java.lang.Math.toIntExact;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -50,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
         if (clickedSong != null) {
             setCurrentSong(clickedSong);
             startSong();
+        } else{
+            setCurrentSong(new Song("Covered in Flames", "Imagine Letters", R.drawable.concert_pic,  R.drawable.concert_pic_tn, "Rock"));
         }
     }
 
@@ -69,23 +69,25 @@ public class MainActivity extends AppCompatActivity {
 /*
 **The startSong method is a placeholder for real music playing capabilities
  */
-    public void startSong(){
-        final SeekBar seekBar = findViewById(R.id.seekbar);
-        final int songLength = 180000;
-        seekBar.setMax(songLength);
-        new CountDownTimer(songLength, 100){
-            @Override
-            public void onTick(long millisUntilFinished) {
-                int remainingLength = (int) millisUntilFinished;
-                seekBar.setProgress(songLength - remainingLength);
+    public void startSong() {
+            final SeekBar seekBar = findViewById(R.id.seekbar);
+            final int songLength = 180000;
+            seekBar.setMax(songLength);
+            CountDownTimer timer = new CountDownTimer(songLength, 100) {
+                @Override
+                public void onTick(long millisUntilFinished) {
+                    int remainingLength = (int) millisUntilFinished;
+                    seekBar.setProgress(songLength - remainingLength);
+                }
+
+                @Override
+                public void onFinish() {
+
+                }
+            };
+            if (seekBar.getProgress() == 0) {
+                timer.start();
             }
-
-            @Override
-            public void onFinish() {
-
-            }
-        }.start();
-    }
-
+        }
 
 }

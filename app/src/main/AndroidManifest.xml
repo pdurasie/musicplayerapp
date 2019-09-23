@@ -9,9 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HeartedActivity"
-            android:label="@string/hearted_name">
-        </activity>
         <activity android:name=".LibraryActivity"
             android:label="@string/library_name"/>
         <activity android:name=".MainActivity"

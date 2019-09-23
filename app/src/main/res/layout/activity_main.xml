@@ -83,8 +83,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                style="@style/lyrics_header"
+                android:text="@string/lyrics_header"
+                tools:text="Lyrics:" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/lyrics_body"
                 android:text="@string/lorem"
                 tools:text="Lyrics here" />
 
