@@ -6,21 +6,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Filter;
-import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class SongAdapter extends ArrayAdapter<Song> implements Filterable {
-
-    private List<Song> originalSongList;
+public class SongAdapter extends ArrayAdapter<Song>{
 
    public SongAdapter(Activity context, ArrayList<Song> songs){
         super(context, 0, songs);
-        originalSongList = songs;
     }
 
     @Override
@@ -47,44 +41,4 @@ public class SongAdapter extends ArrayAdapter<Song> implements Filterable {
         return listItemView;
     }
 
-
-    // This filtering section is adapted by a stack overflow question:
-    // "Custom getFilter in custom ArrayAdapter in android"
-    @Override
-    public Filter getFilter() {
-        return new Filter(){
-            @Override
-            protected FilterResults performFiltering(CharSequence charSequence) {
-                FilterResults filteredSongs = new FilterResults();
-                ArrayList<Song> tempList = new ArrayList<Song>();
-
-                if(charSequence != null && originalSongList != null){
-                    int length = originalSongList.size();
-                    int i = 0;
-                    // If the genre is equal to the filtering parameter, add to list
-                        while (i < length){
-                            Song song = originalSongList.get(i);
-                            if (song.getGenre() == charSequence || charSequence == "All") {
-                                tempList.add(song);
-                            }
-                            i++;
-                        }
-                        //prepare a FilterResults object for "publishResult" method
-                        filteredSongs.values = tempList;
-                        filteredSongs.count = tempList.size();
-                }
-                return filteredSongs;
-            }
-
-            @Override
-            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-               originalSongList = (ArrayList<Song>) filterResults.values;
-               if (filterResults.count > 0){
-                   notifyDataSetChanged();
-               } else{
-                   notifyDataSetInvalidated();
-               }
-            }
-        };
-    }
 }

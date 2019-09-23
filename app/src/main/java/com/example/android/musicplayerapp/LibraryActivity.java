@@ -31,7 +31,7 @@ public class LibraryActivity extends AppCompatActivity{
 
         final ArrayList<Song> SONGS = new ArrayList<>();
 
-        SONGS.add(new Song("Flames", "Imagine Letters", R.drawable.concert_pic,  R.drawable.concert_pic_tn, "Rock"));
+        SONGS.add(new Song("Covered in Flames", "Imagine Letters", R.drawable.concert_pic,  R.drawable.concert_pic_tn, "Rock"));
         SONGS.add(new Song("Set this world free", "Death to the Spartans", R.drawable.stairs_pic, R.drawable.stairs_pic_tn, "Metal"));
         SONGS.add(new Song("Sunset Rider", "Four Guys",  R.drawable.boats_pic, R.drawable.boats_pic_tn, "Rock"));
         SONGS.add(new Song("Lollipops", "Death to the Martians",  R.drawable.head_pic, R.drawable.head_pic_tn, "Pop"));
