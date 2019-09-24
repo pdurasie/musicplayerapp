@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         /*
-        ** Send explicit intent to library activity
+         ** Send explicit intent to library activity
          */
         Button libraryBtn = findViewById(R.id.library_btn);
         libraryBtn.setOnClickListener(new View.OnClickListener() {
@@ -39,23 +39,22 @@ public class MainActivity extends AppCompatActivity {
                 startSong();
             }
         });
-/*
-**This receives a Song object when it is started by an explicit intent and sets it to
-* the current Song
- */
+        /*
+         **This receives a Song object when it is started by an explicit intent and sets it to
+         * the current Song
+         */
         Intent intent = getIntent();
         Song clickedSong = (Song) intent.getSerializableExtra("clickedSong");
         if (clickedSong != null) {
             setCurrentSong(clickedSong);
             startSong();
-        } else{
-            setCurrentSong(new Song("Covered in Flames", "Imagine Letters", R.drawable.concert_pic,  R.drawable.concert_pic_tn, "Rock"));
+        } else {
+            setCurrentSong(new Song("Covered in Flames", "Imagine Letters", R.drawable.concert_pic, R.drawable.concert_pic_tn, "Rock"));
         }
     }
 
 
-
-    public void setCurrentSong(Song clickedSong){
+    public void setCurrentSong(Song clickedSong) {
         TextView currentSongTitle = findViewById(R.id.current_song_title);
         currentSongTitle.setText(clickedSong.getSongName());
 
@@ -66,28 +65,29 @@ public class MainActivity extends AppCompatActivity {
         RelativeLayout currentSongLayout = findViewById(R.id.current_song_layout);
         currentSongLayout.setBackgroundResource(ImageId);
     }
-/*
-**The startSong method is a placeholder for real music playing capabilities
- */
+
+    /*
+     **The startSong method is a placeholder for real music playing capabilities
+     */
     public void startSong() {
-            final SeekBar seekBar = findViewById(R.id.seekbar);
-            final int songLength = 180000;
-            seekBar.setMax(songLength);
-            CountDownTimer timer = new CountDownTimer(songLength, 100) {
-                @Override
-                public void onTick(long millisUntilFinished) {
-                    int remainingLength = (int) millisUntilFinished;
-                    seekBar.setProgress(songLength - remainingLength);
-                }
-
-                @Override
-                public void onFinish() {
-
-                }
-            };
-            if (seekBar.getProgress() == 0) {
-                timer.start();
+        final SeekBar seekBar = findViewById(R.id.seekbar);
+        final int songLength = 180000;
+        seekBar.setMax(songLength);
+        CountDownTimer timer = new CountDownTimer(songLength, 100) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                int remainingLength = (int) millisUntilFinished;
+                seekBar.setProgress(songLength - remainingLength);
             }
+
+            @Override
+            public void onFinish() {
+
+            }
+        };
+        if (seekBar.getProgress() == 0) {
+            timer.start();
         }
+    }
 
 }
