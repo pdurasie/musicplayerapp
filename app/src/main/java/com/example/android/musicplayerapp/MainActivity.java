@@ -1,10 +1,10 @@
 package com.example.android.musicplayerapp;
 
-import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.os.CountDownTimer;
+import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
@@ -17,14 +17,43 @@ public class MainActivity extends AppCompatActivity {
 
     MediaPlayer mediaPlayer;
     Song currentSong;
+    Handler handler = new Handler();
+    Runnable updateSeekbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        final SeekBar seekBar = findViewById(R.id.seekbar);
+        updateSeekbar = new Runnable() {
+            @Override
+            public void run() {
+                int currentMediaPosition = mediaPlayer.getCurrentPosition();
+                int maxMediaDuration = mediaPlayer.getDuration();
+                seekBar.setMax(maxMediaDuration);
+                seekBar.setProgress(currentMediaPosition);
+                handler.postDelayed(this, 100);
+            }
+        };
 
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if(fromUser) {
+                    int currentPosition = seekBar.getProgress();
+                    mediaPlayer.seekTo(currentPosition);
+                }
+            }
 
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
+        });
         /*
          ** Send explicit intent to library activity
          */
@@ -79,16 +108,18 @@ public class MainActivity extends AppCompatActivity {
         currentSongLayout.setBackgroundResource(ImageId);
     }
 
+
+
     /*
      **The startSong method is a placeholder for real music playing capabilities
      */
     public void startSong(Song currentSong) {
-        final SeekBar seekBar = findViewById(R.id.seekbar);
-        if(mediaPlayer != null) {
+        if (mediaPlayer != null) {
             mediaPlayer.reset();
         }
-        mediaPlayer= MediaPlayer.create(getApplicationContext(), currentSong.getSongFileId());
+        mediaPlayer = MediaPlayer.create(getApplicationContext(), currentSong.getSongFileId());
         mediaPlayer.start();
+        handler.post(updateSeekbar);
     }
 
 }
