@@ -1,7 +1,5 @@
 package com.example.android.musicplayerapp;
 
-import android.widget.Filter;
-
 import java.io.Serializable;
 
 public class Song implements Serializable {
@@ -11,13 +9,20 @@ public class Song implements Serializable {
     private int mImageResourceId;
     private int mThumbnailResourceId;
     private String mGenre;
+    private int mSongFileId;
 
-    public Song(String songName, String artistName, int imageResourceId, int thumbnailResourceId, String genre) {
+    public Song(String songName,
+                String artistName,
+                int imageResourceId,
+                int thumbnailResourceId,
+                String genre,
+                int songFileId) {
         mSongName = songName;
         mArtistName = artistName;
         mImageResourceId = imageResourceId;
         mThumbnailResourceId = thumbnailResourceId;
         mGenre = genre;
+        mSongFileId = songFileId;
     }
 
     public String getSongName() {
@@ -37,5 +42,7 @@ public class Song implements Serializable {
     public String getGenre() {
         return mGenre;
     }
+
+    public int getSongFileId() {return mSongFileId; }
 
 }

@@ -1,17 +1,14 @@
 package com.example.android.musicplayerapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
-import android.widget.PopupMenu;
 import android.widget.Spinner;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
@@ -31,11 +28,11 @@ public class LibraryActivity extends AppCompatActivity{
 
         final ArrayList<Song> SONGS = new ArrayList<>();
 
-        SONGS.add(new Song("Covered in Flames", "Imagine Letters", R.drawable.concert_pic,  R.drawable.concert_pic_tn, "Rock"));
-        SONGS.add(new Song("Set this world free", "Death to the Spartans", R.drawable.stairs_pic, R.drawable.stairs_pic_tn, "Metal"));
-        SONGS.add(new Song("Sunset Rider", "Four Guys",  R.drawable.boats_pic, R.drawable.boats_pic_tn, "Rock"));
-        SONGS.add(new Song("Lollipops", "Death to the Martians",  R.drawable.head_pic, R.drawable.head_pic_tn, "Pop"));
-        SONGS.add(new Song("Nature fixes you", "The Hipsters", R.drawable.creek_pic, R.drawable.creek_pic_tn, "Alternative"));
+        SONGS.add(new Song("Covered in Flames", "Imagine Letters", R.drawable.concert_pic,  R.drawable.concert_pic_tn, "Rock", R.raw.a_kiss_to_build_a_dream_on));
+        SONGS.add(new Song("Set this world free", "Death to the Spartans", R.drawable.stairs_pic, R.drawable.stairs_pic_tn, "Metal", R.raw.a_kiss_to_build_a_dream_on));
+        SONGS.add(new Song("Sunset Rider", "Four Guys",  R.drawable.boats_pic, R.drawable.boats_pic_tn, "Rock", R.raw.a_kiss_to_build_a_dream_on));
+        SONGS.add(new Song("Lollipops", "Death to the Martians",  R.drawable.head_pic, R.drawable.head_pic_tn, "Pop", R.raw.a_kiss_to_build_a_dream_on));
+        SONGS.add(new Song("Nature fixes you", "The Hipsters", R.drawable.creek_pic, R.drawable.creek_pic_tn, "Alternative", R.raw.a_kiss_to_build_a_dream_on));
 
         SongAdapter adapter = new SongAdapter(this, SONGS);
 

@@ -1,23 +1,29 @@
 package com.example.android.musicplayerapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class MainActivity extends AppCompatActivity {
+
+    MediaPlayer mediaPlayer;
+    Song currentSong;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         /*
          ** Send explicit intent to library activity
@@ -36,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         playButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startSong();
+                startSong(currentSong);
             }
         });
         /*
@@ -46,10 +52,17 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Song clickedSong = (Song) intent.getSerializableExtra("clickedSong");
         if (clickedSong != null) {
-            setCurrentSong(clickedSong);
-            startSong();
+            currentSong = clickedSong;
+            setCurrentSong(currentSong);
+            startSong(currentSong);
         } else {
-            setCurrentSong(new Song("Covered in Flames", "Imagine Letters", R.drawable.concert_pic, R.drawable.concert_pic_tn, "Rock"));
+            currentSong = new Song("Covered in Flames",
+                    "Imagine Letters",
+                    R.drawable.concert_pic,
+                    R.drawable.concert_pic_tn,
+                    "Rock",
+                    R.raw.a_kiss_to_build_a_dream_on);
+            setCurrentSong(currentSong);
         }
     }
 
@@ -69,25 +82,13 @@ public class MainActivity extends AppCompatActivity {
     /*
      **The startSong method is a placeholder for real music playing capabilities
      */
-    public void startSong() {
+    public void startSong(Song currentSong) {
         final SeekBar seekBar = findViewById(R.id.seekbar);
-        final int songLength = 180000;
-        seekBar.setMax(songLength);
-        CountDownTimer timer = new CountDownTimer(songLength, 100) {
-            @Override
-            public void onTick(long millisUntilFinished) {
-                int remainingLength = (int) millisUntilFinished;
-                seekBar.setProgress(songLength - remainingLength);
-            }
-
-            @Override
-            public void onFinish() {
-
-            }
-        };
-        if (seekBar.getProgress() == 0) {
-            timer.start();
+        if(mediaPlayer != null) {
+            mediaPlayer.reset();
         }
+        mediaPlayer= MediaPlayer.create(getApplicationContext(), currentSong.getSongFileId());
+        mediaPlayer.start();
     }
 
 }
